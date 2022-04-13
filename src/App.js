@@ -5,10 +5,11 @@ import { PaginaInicial } from './components/PaginaInicial/PaginaInicial';
 import { Cadastro } from './components/Cadastro/cadastro'
 import { Servicos } from './components/Servicos/servicos'
 import { Carrinho } from './components/Carrinho/carrinho'
+import Global from './Global.css'
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Servicos'
+		pagAtual: 'Inicio'
 	}
 
 	mudarParaInicio = () => {
@@ -35,7 +36,7 @@ class App extends React.Component {
 					<PaginaInicial
 						mudarParaCadastro={this.mudarParaCadastro}
 						mudarParaServicos={this.mudarParaServicos}
-					/>
+						/>
 				)
 
 			case 'Cadastro':
@@ -63,7 +64,8 @@ class App extends React.Component {
 
 			default:
 				return (<h1>Ocorreu um erro</h1>)
-		}
+		
+			}
 	}
 }
 
