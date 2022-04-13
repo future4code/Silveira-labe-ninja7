@@ -29,7 +29,7 @@ export class Servicos extends Component {
     valorMaximo: '',
     valorMinimo: '',
     query: '',
-
+    valorOrdem: '',
 
   }
   pegarServicos = () => {
@@ -59,6 +59,12 @@ export class Servicos extends Component {
     this.setState({ query: e.target.value })
   }
 
+  onChangeOrdem =(e) => {
+    this.state.valorOrdem = e.target.value
+    this.setState({valorOrdem: this.state.valorOrdem})
+    console.log(this.state.valorOrdem)
+  }
+
   render() {
 
     let mapeamentoDeTarefas = this.state.Servicos.filter((servico) => {
@@ -72,7 +78,27 @@ export class Servicos extends Component {
     })
       .filter((servico) => {
         return servico.title.toLowerCase().includes(this.state.query.toLowerCase())
+      }).sort((a,b) => {
+         if (this.state.valorOrdem == "Crescente") {
+           return a.price - b.price
+         }
+      }).sort((a,b) => {
+        if (this.state.valorOrdem == "Decrescente") {
+          return b.price - a.price
+        }
+      }).sort((a,b) => {
+        if (this.state.valorOrdem == "Titulo") {
+          if (a.title > b.title) {
+            return 1;
+          }
+          if (a.title < b.title) {
+            return -1;
+          }
+         
+          return 0;
+        }
       })
+
       .map((servico) => {
         return (<Card
           nome={servico.title}
@@ -106,10 +132,14 @@ export class Servicos extends Component {
               value={this.state.valorMinimo}
               onChange={this.onChangeMin}
             />
-            <select>
-              <option> Valor 1</option>
-              <option>Valor 2</option>
-              <option>Valor 3</option>
+            <select onChange={this.onChangeOrdem}>
+
+              <option>Nenhum</option>
+              <option value="Crescente">Preço crescente</option>
+              <option value ="Decrescente">Valor decrescente</option>
+              <option value = "Titulo">Título</option>
+              <option>Prazo</option>
+              
 
             </select>
 
