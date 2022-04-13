@@ -8,7 +8,7 @@ import { Carrinho } from './components/Carrinho/carrinho'
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Inicio'
+		pagAtual: 'Servicos'
 	}
 
 	mudarParaInicio = () => {
