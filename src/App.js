@@ -9,7 +9,7 @@ import Global from './Global.css'
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Cadastro'
+		pagAtual: 'Inicio'
 	}
 
 	mudarParaInicio = () => {
