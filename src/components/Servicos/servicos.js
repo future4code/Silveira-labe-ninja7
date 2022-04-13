@@ -15,9 +15,9 @@ const headers = {
 export class Servicos extends Component {
   state = {
     Servicos: [],
-    valorMaximo: 0,
-    valorMinimo: 0,
-    
+    valorMaximo: '',
+    valorMinimo: '',
+    query: '',
 
 
   }
@@ -44,10 +44,23 @@ export class Servicos extends Component {
    onChangeMin = (e) => {
     this.setState({valorMinimo: e.target.value})
   }
+  onChangeQuery = (e) => {
+    this.setState({query: e.target.value})
+  }
+ 
   render() {
-     
+
     let mapeamentoDeTarefas = this.state.Servicos.filter((servico)=>{
-      return (servico.price >= this.state.valorMinimo) && (servico.price <= this.state.valorMaximo)
+      if(this.state.valorMaximo != '') {
+        return (servico.price <= this.state.valorMaximo)
+      }else{
+        return servico
+      }
+    }).filter((servico)=>{
+      return (servico.price >= this.state.valorMinimo)
+    })
+    .filter((servico)=>{
+      return servico.title.toLowerCase().includes(this.state.query.toLowerCase())
     })
     .map((servico) => {
      return(<Card
@@ -61,7 +74,13 @@ export class Servicos extends Component {
     
     return (
       <div>
-        <Header />
+        <Header 
+        mudarParaInicio={this.props.mudarParaInicio}
+        mudarParaCarrinho={this.props.mudarParaCarrinho}
+        pagAtual={this.props.pagAtual}
+        onChange={this.onChangeQuery}
+        query={this.state.query}
+        />
         <div>
           <input 
            placeholder='Valor Max'

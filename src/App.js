@@ -9,7 +9,7 @@ import Global from './Global.css'
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Inicio'
+		pagAtual: 'Servicos'
 	}
 
 	mudarParaInicio = () => {
@@ -36,20 +36,29 @@ class App extends React.Component {
 					<PaginaInicial
 						mudarParaCadastro={this.mudarParaCadastro}
 						mudarParaServicos={this.mudarParaServicos}
+						pagAtual={this.state.pagAtual}
+						mudarParaCarrinho={this.mudarParaCarrinho}
+						mudarParaInicio={this.mudarParaInicio}
 						/>
 				)
 
 			case 'Cadastro':
 				return (
 					<Cadastro
-						mudarParaInicio={this.mudarParaInicio}
+						mudarParaCadastro={this.mudarParaCadastro}
 						mudarParaServicos={this.mudarParaServicos}
+						pagAtual={this.state.pagAtual}
+						mudarParaCarrinho={this.mudarParaCarrinho}
+						mudarParaInicio={this.mudarParaInicio}
 					/>
 				)
 
 			case 'Servicos':
 				return (
 					<Servicos
+						mudarParaCadastro={this.mudarParaCadastro}
+						mudarParaServicos={this.mudarParaServicos}
+						pagAtual={this.state.pagAtual}
 						mudarParaCarrinho={this.mudarParaCarrinho}
 						mudarParaInicio={this.mudarParaInicio}
 					/>
@@ -58,7 +67,11 @@ class App extends React.Component {
 			case 'Carrinho':
 				return (
 					<Carrinho
+						mudarParaCadastro={this.mudarParaCadastro}
 						mudarParaServicos={this.mudarParaServicos}
+						pagAtual={this.state.pagAtual}
+						mudarParaCarrinho={this.mudarParaCarrinho}
+						mudarParaInicio={this.mudarParaInicio}
 					/>
 				)
 

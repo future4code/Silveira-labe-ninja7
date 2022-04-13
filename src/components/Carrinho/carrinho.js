@@ -9,7 +9,11 @@ export class Carrinho extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header 
+        mudarParaInicio={this.props.mudarParaInicio}
+        mudarParaCarrinho={this.props.mudarParaCarrinho}
+        pagAtual={this.props.pagAtual}
+        />
         <h1>Carrinho</h1>
         <Footer />
       </div>

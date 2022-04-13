@@ -74,7 +74,11 @@ createJob = () => {
   render() {
     return (
       <div>
-      <Header />
+      <Header
+      mudarParaInicio={this.props.mudarParaInicio}
+      mudarParaCarrinho={this.props.mudarParaCarrinho}
+      pagAtual={this.props.pagAtual}
+      />
       <JobPage>
       <h2> PÁGINA PARA ADICIONAR NOVOS JOBS </h2>
             <input placeholder="Title" type="text" value={this.state.inputTitle} onChange={this.onChangeTitle} />

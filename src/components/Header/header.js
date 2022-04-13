@@ -32,29 +32,62 @@ export class Header extends Component {
   };
 
   render() {
-    console.log(this.state.query)
 
-    return (
-      <div>
-        <HeaderBonito>
+  let mudarPagina = () => {
+      switch(this.props.pagAtual){
+        case 'Servicos':
+          return (
+            <HeaderBonito>
             <div>
-              <button>home</button>
+              <button
+              onClick={this.props.mudarParaInicio}
+              >home</button>
             </div>
 
             <div>
               <input
               placeholder='Pesquisar'
-              value={this.state.query}
-              onChange={this.UpdateQuery}
+              value={this.props.query}
+              onChange={this.props.onChange}
               />
 
             </div>
 
             <div>
-              <button>carrinho</button>
+              <button
+              onClick={this.props.mudarParaCarrinho}
+              >carrinho</button>
             </div>
           
         </HeaderBonito>
+          )
+          default: return (
+
+            <HeaderBonito>
+            <div>
+            <button
+              onClick={this.props.mudarParaInicio}
+              >home</button>
+            </div>
+
+            <div>
+            <button
+              onClick={this.props.mudarParaCarrinho}
+              >carrinho</button>
+            </div>
+          
+        </HeaderBonito>
+          )
+          
+      }
+        
+      
+    }
+
+
+    return (
+      <div>
+       {mudarPagina()}
       </div>
     )
   }
