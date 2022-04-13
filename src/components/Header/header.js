@@ -9,13 +9,33 @@ const HeaderBonito = styled.header`
   background-color: black;
   height: 80px;
   align-items: center;
+  input{
+    width: 400px;
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: solid black;
+  }
 `
 
 
+
 export class Header extends Component {
+  state = {
+    query: "",
+  }
+
+  UpdateQuery = (e) => {
+    this.setState({
+      query: e.target.value
+    })
+  };
+
   render() {
+    console.log(this.state.query)
+
     return (
-      
+      <div>
         <HeaderBonito>
             <div>
               <button>home</button>
@@ -24,8 +44,10 @@ export class Header extends Component {
             <div>
               <input
               placeholder='Pesquisar'
+              value={this.state.query}
+              onChange={this.UpdateQuery}
               />
-              <button>Pesquisar</button>
+
             </div>
 
             <div>
@@ -33,6 +55,7 @@ export class Header extends Component {
             </div>
           
         </HeaderBonito>
+      </div>
     )
   }
 }
