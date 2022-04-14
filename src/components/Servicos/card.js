@@ -19,7 +19,7 @@ const Menu = styled.div`
 
 export class Card extends Component {
 
-
+    
   render() {
 
       return (
@@ -29,8 +29,8 @@ export class Card extends Component {
               <p>{this.props.preco}</p>
               <p>{this.props.prazo}</p>
               <Menu>
-                  <button>Ver Detalhes</button>
-                  <button>Add carrinho</button>
+                  <button onClick={()=>{this.props.infoCard(this.props.id)}}>Ver Detalhes</button>
+                  <button onClick={()=>{this.props.addCarrinho(this.props.id)}}>Add carrinho</button>
               </Menu>
               
           </Display>

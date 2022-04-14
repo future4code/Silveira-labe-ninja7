@@ -30,6 +30,7 @@ export class Servicos extends Component {
     valorMinimo: '',
     query: '',
     valorOrdem: '',
+    carrinho: []
 
   }
   pegarServicos = () => {
@@ -55,6 +56,7 @@ export class Servicos extends Component {
   onChangeMin = (e) => {
     this.setState({ valorMinimo: e.target.value })
   }
+
   onChangeQuery = (e) => {
     this.setState({ query: e.target.value })
   }
@@ -106,6 +108,10 @@ export class Servicos extends Component {
           preco={servico.price}
           formaDePagamento={servico.paymentMethods}
           prazo={servico.dueDate}
+          contratado = {servico.taken}
+          id = {servico.id}
+          addCarrinho = {this.props.addCarrinho}
+          infoCard={this.props.infoCard}
         />)
       })
 
