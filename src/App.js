@@ -61,13 +61,23 @@ class App extends React.Component {
 
 	delItemCarrinho = (id) => {
 
-		this.state.servicosCarrinho.map((item, pos) => {
-			if (item.id === id) {
-				this.state.servicosCarrinho.splice(pos, 1)
-				this.setState({ servicosCarrinho: this.state.servicosCarrinho })
-				localStorage.setItem('carrinho', JSON.stringify(this.state.servicosCarrinho))
-			}
-		})
+		if(window.confirm('Tem certeza que deseja deletar este item?')){
+			this.state.servicosCarrinho.map((item, pos) => {
+				if (item.id === id) {
+					this.state.servicosCarrinho.splice(pos, 1)
+					this.setState({ servicosCarrinho: this.state.servicosCarrinho })
+					localStorage.setItem('carrinho', JSON.stringify(this.state.servicosCarrinho))
+				}
+			})
+		}
+
+	}
+
+	delAllCarrinho = () => {
+
+		if(window.confirm('Tem certeza que deseja deletar todos os itens?')){
+			this.setState({servicosCarrinho: []})
+		}
 
 	}
 
@@ -133,6 +143,7 @@ class App extends React.Component {
 						mudarParaInicio={this.mudarParaInicio}
 						listaCarrinho={this.state.servicosCarrinho}
 						delItem={this.delItemCarrinho}
+						delAllCarrinho = {this.delAllCarrinho}
 					/>
 				)
 

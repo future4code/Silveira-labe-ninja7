@@ -28,6 +28,8 @@ export class Carrinho extends Component {
         pagAtual={this.props.pagAtual}
         />
         {listaCarrinho}
+        <button >Comprar Serviços</button>
+        <button onClick={this.props.delAllCarrinho}>Esvaziar carrinho</button>
         <button onClick={this.props.mudarParaServicos}>Voltar para serviços</button>
         <Footer />
       </div>
