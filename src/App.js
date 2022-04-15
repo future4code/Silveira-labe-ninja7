@@ -15,7 +15,7 @@ const headers = {
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Carrinho',
+		pagAtual: 'Inicio',
 		servicosCarrinho: [],
 	}
 
@@ -42,20 +42,12 @@ class App extends React.Component {
 			.then((res) => {
 				let novaLista = [...this.state.servicosCarrinho, res.data]
 				this.setState({ servicosCarrinho: novaLista })
-				localStorage.setItem('carrinho', JSON.stringify(this.state.servicosCarrinho))
 				alert('Serviço adicionado com sucesso!')
 			})
 			.catch((err) => {
 				console.log(err)
 			})
 
-
-	}
-
-	componentDidMount() {
-		const carrinho = localStorage.getItem('carrinho')
-		this.setState({ servicosCarrinho: JSON.parse(carrinho) })
-		console.log(carrinho)
 
 	}
 
