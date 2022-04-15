@@ -8,7 +8,6 @@ import { Footer } from '../Footer/footer';
 export class Carrinho extends Component {
 
 
-
   render() {
 
     let listaCarrinho = this.props.listaCarrinho.map((item)=>{
