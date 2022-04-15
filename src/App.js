@@ -5,6 +5,8 @@ import { PaginaInicial } from './components/PaginaInicial/PaginaInicial';
 import { Cadastro } from './components/Cadastro/cadastro'
 import { Servicos } from './components/Servicos/servicos'
 import { Carrinho } from './components/Carrinho/carrinho'
+import { Detalhes } from './components/Detalhes/detalhes'
+import { Card } from './components/Servicos/card';
 import Global from './Global.css'
 
 const headers = {
@@ -15,8 +17,13 @@ const headers = {
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Inicio',
+		pagAtual: 'Servicos',
 		servicosCarrinho: [],
+		tituloJob: '',
+		tituloDescricao: '',
+		tituloPreco: '',
+		tituloData: '',
+		tituloPagamento: []
 	}
 
 	mudarParaInicio = () => {
@@ -48,8 +55,8 @@ class App extends React.Component {
 				console.log(err)
 			})
 
-
 	}
+
 
 	delItemCarrinho = (id) => {
 
@@ -58,12 +65,12 @@ class App extends React.Component {
 				if (item.id === id) {
 					this.state.servicosCarrinho.splice(pos, 1)
 					this.setState({ servicosCarrinho: this.state.servicosCarrinho })
-					localStorage.setItem('carrinho', JSON.stringify(this.state.servicosCarrinho))
 				}
 			})
 		}
 
 	}
+
 
 	delAllCarrinho = () => {
 
@@ -80,17 +87,17 @@ class App extends React.Component {
 		Axios.get(URL, headers)
 			.then((res) => {
 				console.log(res.data.title)
+				this.setState({tituloJob:res.data.title, tituloDescricao:res.data.description, tituloPreco:res.data.price, tituloData: res.data.dueDate, tituloPagamento: res.data.paymentMethod})
+				this.setState({ pagAtual: 'Detalhes'})
 			})
 			.catch((err) => {
 				console.log(err)
 			})
-
 	}
 
 	render() {
 		switch (this.state.pagAtual) {
 			case 'Inicio':
-
 				return (
 					<PaginaInicial
 						mudarParaCadastro={this.mudarParaCadastro}
@@ -109,6 +116,7 @@ class App extends React.Component {
 						pagAtual={this.state.pagAtual}
 						mudarParaCarrinho={this.mudarParaCarrinho}
 						mudarParaInicio={this.mudarParaInicio}
+						mudarParaDetalhes={this.mudarParaDetalhes}
 					/>
 				)
 
@@ -138,9 +146,28 @@ class App extends React.Component {
 						delAllCarrinho = {this.delAllCarrinho}
 					/>
 				)
-
+			
+				case 'Detalhes':
+					return (
+						<Detalhes
+						mudarParaCadastro={this.mudarParaCadastro}
+						mudarParaServicos={this.mudarParaServicos}
+						pagAtual={this.state.pagAtual}
+						mudarParaCarrinho={this.mudarParaCarrinho}
+						mudarParaInicio={this.mudarParaInicio}
+						mudarParaDetalhes={this.mudarParaDetalhes}
+						infoCard={this.infoCard}
+						titulo = {this.state.tituloJob} 
+						descricao = {this.state.tituloDescricao}
+						preco = {this.state.tituloPreco}
+						data = {this.state.tituloData}
+						pagamento = {this.state.tituloPagamento}
+					/>
+					)
 			default:
 				return (<h1>Ocorreu um erro</h1>)
+			}
+
 
 		}
 	}

@@ -6,12 +6,11 @@ import { Footer } from '../Footer/footer';
 import { Card } from "./card";
 
 const ContainerServicos = styled.section`
-
 `
 
 const Display = styled.div`
   display: grid;
-  wrap: wrap;
+  /* wrap: wrap; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 50px;
 `
@@ -31,16 +30,14 @@ export class Servicos extends Component {
     query: '',
     valorOrdem: '',
     carrinho: []
-
   }
+
   pegarServicos = () => {
     const URL = "https://labeninjas.herokuapp.com/jobs"
     Axios.get(URL, headers)
       .then((res) => {
         this.setState({ Servicos: res.data.jobs })
-        console.log(this.state.Servicos)
       })
-
       .catch((err) => {
         console.log(err)
       })
@@ -145,8 +142,6 @@ export class Servicos extends Component {
               <option value ="Decrescente">Valor decrescente</option>
               <option value = "Titulo">Título</option>
               <option>Prazo</option>
-              
-
             </select>
 
           </div>
