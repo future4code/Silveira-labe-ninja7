@@ -21,10 +21,10 @@ const HeaderBonito = styled.header`
     color:white;
     background-color: transparent;
     border:none;
-
+    cursor: pointer;
+    margin-right: 30px;
     i{
       font-size: 32px;
-      margin-right: 20px;
     }
   }
 `
@@ -37,7 +37,8 @@ const Logo = styled.h1`
 const ContainerLogo = styled.div`
 display:flex;
 align-items: center;
-margin-left:10px;
+margin-left:20px;
+cursor: pointer;
 
 i{
   font-size: 32px;
