@@ -109,7 +109,6 @@ export class Servicos extends Component {
           id = {servico.id}
           addCarrinho = {this.props.addCarrinho}
           infoCard={this.props.infoCard}
-          mudarParaDetalhes={this.props.mudarParaDetalhes}
         />)
       })
 

@@ -13,6 +13,8 @@ const Menu = styled.div`
   
 `
 export class Card extends Component {
+
+    
   render() {
       return (
           <Display> 
@@ -23,6 +25,10 @@ export class Card extends Component {
                   <button onClick={() => this.props.infoCard (this.props.id)}>Ver Detalhes</button>
                   <button onClick={()=> this.props.addCarrinho (this.props.id)}>Add carrinho</button>
               </Menu>   
+                  <button onClick={()=>{this.props.infoCard(this.props.id)}}>Ver Detalhes</button>
+                  <button onClick={()=>{this.props.addCarrinho(this.props.id)}}>Add carrinho</button>
+              </Menu>
+              r
           </Display>
       )
   }
