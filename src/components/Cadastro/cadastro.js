@@ -8,12 +8,47 @@ const JobPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 500px;
+  background-color: #FF9B1F;
+
   input{
-    width: 400px;
+    width: 100%;
+    height: 30px;
+    margin: 3px;
+
+  }
+  
+
+  button{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color:white;
+    font-size: 18px;
+    border:none;
+    border-radius: 6px;
+    cursor:pointer;
   }
   select {
-    width: 410px;
+    width: 100%;
+    height: 83px;
   }
+  h2{
+    text-align:center;
+  }
+`
+
+const JobDisplay = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex-direction: column;
+  width: 510px;
+  border-radius: 6px;
+  padding:10px;
+  background-color: white ;
+  box-shadow: 0px 5px 5px rgba(22, 22, 22, 0.863);
 `
 
 export class Cadastro extends Component {
@@ -80,7 +115,8 @@ createJob = () => {
       pagAtual={this.props.pagAtual}
       />
       <JobPage>
-      <h2> PÁGINA PARA ADICIONAR NOVOS JOBS </h2>
+        <JobDisplay>
+        <h2> ADICIONE UM NOVO JOB </h2>
             <input placeholder="Title" type="text" value={this.state.inputTitle} onChange={this.onChangeTitle} />
             <input placeholder="Descrição" type="text" value={this.state.inputDescription} onChange={this.onChangeDescription} />
             <input placeholder="Preço" type="number" value={this.state.inputPrice} onChange={this.onChangePrice} />
@@ -93,6 +129,7 @@ createJob = () => {
             </select>
             <input placeholder="Data de Expiração" type="date" value={this.state.inputDate} onChange={this.onChangeDate} />
             <button onClick={this.createJob}> Enviar Job </button>
+        </JobDisplay>
       </JobPage>
       <Footer />
       </div>

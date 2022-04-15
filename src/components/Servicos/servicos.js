@@ -6,7 +6,27 @@ import { Footer } from '../Footer/footer';
 import { Card } from "./card";
 
 const ContainerServicos = styled.section`
+background-color: #FF9B1F;
+min-height: 500px;
+`
 
+const Pesquisa = styled.div`
+display:flex;
+justify-content:center;
+background-color: black;
+input{
+  height: 25px;
+  width: 200px;
+  margin: 20px;
+  margin-top: 10px;
+}
+
+select{
+  height: 25px;
+  width: 200px;
+  margin: 20px;
+  margin-top: 10px;
+}
 `
 
 const Display = styled.div`
@@ -124,8 +144,9 @@ export class Servicos extends Component {
           onChange={this.onChangeQuery}
           query={this.state.query}
         />
+        <hr/>
         <ContainerServicos>
-          <div>
+          <Pesquisa>
             <input
               placeholder='Valor Max'
               type='number'
@@ -148,8 +169,7 @@ export class Servicos extends Component {
               
 
             </select>
-
-          </div>
+          </Pesquisa>
           <Display>
           {mapeamentoDeTarefas}
           </Display>

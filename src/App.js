@@ -15,7 +15,7 @@ const headers = {
 
 class App extends React.Component {
 	state = {
-		pagAtual: 'Inicio',
+		pagAtual: 'Servicos',
 		servicosCarrinho: [],
 	}
 
