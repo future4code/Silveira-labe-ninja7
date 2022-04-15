@@ -6,7 +6,18 @@ import { Footer } from '../Footer/footer';
 
 
 export class Carrinho extends Component {
+
   render() {
+
+    let listaCarrinho = this.props.listaCarrinho.map((item)=>{
+      return (
+        <div>
+          <p>{item.title}</p>
+          <button onClick={()=>{this.props.delItem(item.id)}}>X</button>
+        </div>
+      )
+    })
+
     return (
       <div>
         <Header 
@@ -14,7 +25,10 @@ export class Carrinho extends Component {
         mudarParaCarrinho={this.props.mudarParaCarrinho}
         pagAtual={this.props.pagAtual}
         />
-        <h1>Carrinho</h1>
+        {listaCarrinho}
+        <button >Comprar Serviços</button>
+        <button onClick={this.props.delAllCarrinho}>Esvaziar carrinho</button>
+        <button onClick={this.props.mudarParaServicos}>Voltar para serviços</button>
         <Footer />
       </div>
     )
