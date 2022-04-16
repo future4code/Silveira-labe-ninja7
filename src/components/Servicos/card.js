@@ -24,7 +24,7 @@ display: flex;
       color: white;
 
       :hover{
-          cursor: pointer;
+        cursor: pointer;
         background-color:rgb(22, 22, 22);
       }
   }
