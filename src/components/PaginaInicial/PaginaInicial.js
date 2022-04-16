@@ -18,7 +18,6 @@ div{
   align-items:center;
 
   button{
-    cursor: pointer;
     margin: 25px;
     width:300px;
     height: 45px;
@@ -27,6 +26,11 @@ div{
     border:none;
     border-radius: 6px;
     font-size: 18px;
+
+    :hover{
+      cursor: pointer;
+      background-color:rgb(22, 22, 22);
+    }
   }
 }
 `
