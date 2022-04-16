@@ -6,8 +6,8 @@ const FooterBonito = styled.footer`
 background: #000000;
 width: 100%;
 height: 80px;
-
 `
+
 export class Footer extends Component {
   render() {
     return (
