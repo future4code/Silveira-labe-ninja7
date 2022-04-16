@@ -82,12 +82,10 @@ class App extends React.Component {
 
 
 	infoCard = (id) => {
-
 		const URL = `https://labeninjas.herokuapp.com/jobs/${id}`
 		Axios.get(URL, headers)
 			.then((res) => {
-				console.log(res.data.title)
-				this.setState({tituloJob:res.data.title, tituloDescricao:res.data.description, tituloPreco:res.data.price, tituloData: res.data.dueDate, tituloPagamento: res.data.paymentMethod})
+				this.setState({tituloJob:res.data.title, tituloDescricao:res.data.description, tituloPreco:res.data.price, tituloData: res.data.dueDate, tituloPagamento: res.data.paymentMethods})
 				this.setState({ pagAtual: 'Detalhes'})
 			})
 			.catch((err) => {

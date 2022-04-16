@@ -27,8 +27,9 @@ i{
 
 const P = styled.p`
   margin:5px;
-
+height: 80px;
 `
+
 export class Footer extends Component {
   render() {
     return (
