@@ -13,7 +13,7 @@ const convertDate = (date) => {
 
 const ContainerDetails = styled.section`
 background-color: #FF9B1F;
-min-height: 500px;
+height: 500px;
 `
 
 const CardDescricao = styled.div`
@@ -43,12 +43,13 @@ export class Detalhes extends Component {
         )})
 
         return (
-            <ContainerDetails>
-            <Header
+            <div>
+                <Header
                 mudarParaInicio={this.props.mudarParaInicio}
                 mudarParaCarrinho={this.props.mudarParaCarrinho}
                 pagAtual={this.props.pagAtual}
             />
+            <ContainerDetails>
             <CardDescricao>
                 <h1> {this.props.titulo} </h1>
                 <p> Preço: R${this.props.preco} </p>
@@ -56,8 +57,10 @@ export class Detalhes extends Component {
                 <p> Descrição: {this.props.descricao} </p>
                 <p> Métodos de Pagamento: </p> {listPayment}
             </CardDescricao>
-            <Footer />
             </ContainerDetails>
+            <Footer />
+            </div>
+            
         );
     }
 }
