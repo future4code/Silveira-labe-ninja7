@@ -85,7 +85,7 @@ class App extends React.Component {
 		const URL = `https://labeninjas.herokuapp.com/jobs/${id}`
 		Axios.get(URL, headers)
 			.then((res) => {
-				this.setState({tituloJob:res.data.title, tituloDescricao:res.data.description, tituloPreco:res.data.price, tituloData: res.data.dueDate, tituloPagamento: res.data.paymentMethods})
+				this.setState({tituloID:res.data.id, tituloJob:res.data.title, tituloDescricao:res.data.description, tituloPreco:res.data.price, tituloData: res.data.dueDate, tituloPagamento: res.data.paymentMethods})
 				this.setState({ pagAtual: 'Detalhes'})
 			})
 			.catch((err) => {
@@ -155,6 +155,8 @@ class App extends React.Component {
 						mudarParaInicio={this.mudarParaInicio}
 						mudarParaDetalhes={this.mudarParaDetalhes}
 						infoCard={this.infoCard}
+						addCarrinho={this.addCarrinho}
+						id = {this.state.tituloID}
 						titulo = {this.state.tituloJob} 
 						descricao = {this.state.tituloDescricao}
 						preco = {this.state.tituloPreco}
