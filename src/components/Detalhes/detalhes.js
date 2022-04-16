@@ -27,8 +27,13 @@ h1 {
     margin-top: 20px;
 }
 li {
-    margin-top: 5px;
+    margin-top: 10px;
     align-items: flex-start;
+}
+button {
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
 }
 `
 
@@ -56,6 +61,8 @@ export class Detalhes extends Component {
                 <p> Prazo: {convertDate(this.props.data)} </p>
                 <p> Descrição: {this.props.descricao} </p>
                 <p> Métodos de Pagamento: </p> {listPayment}
+                <button onClick={this.props.mudarParaServicos}>Voltar para Lista</button>
+                <button onClick={()=> this.props.addCarrinho (this.props.id)}>Adicionar ao carrinho</button>
             </CardDescricao>
             </ContainerDetails>
             <Footer />
